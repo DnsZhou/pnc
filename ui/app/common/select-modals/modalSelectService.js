@@ -33,10 +33,11 @@
       function asyncModal () {
         var modal = $uibModal.open.apply($uibModal, arguments);
 
-        modal.result.then(function () {
+        modal.result
+        .then(function () {
           $rootScope.$evalAsync();
-        });
-
+        })
+        .catch(()=>{});
         return modal;
       }
 
